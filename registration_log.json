@@ -1,0 +1,154 @@
+[
+  {
+    "timestamp": "2026-04-06T11:56:46",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "FAILED",
+    "details": "mapping_check_failed"
+  },
+  {
+    "timestamp": "2026-04-06T11:56:49",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "FAILED",
+    "details": "wrong_password"
+  },
+  {
+    "timestamp": "2026-04-06T11:56:58",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "FAILED",
+    "details": "wrong_password"
+  },
+  {
+    "timestamp": "2026-04-06T12:01:01",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "FAILED",
+    "details": "wrong_password"
+  },
+  {
+    "timestamp": "2026-04-06T12:01:05",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "FAILED",
+    "details": "mapping_check_failed"
+  },
+  {
+    "timestamp": "2026-04-06T12:01:07",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "FAILED",
+    "details": "mapping_check_failed"
+  },
+  {
+    "timestamp": "2026-04-06T12:01:08",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "FAILED",
+    "details": "mapping_check_failed"
+  },
+  {
+    "timestamp": "2026-04-06T12:01:15",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "FAILED",
+    "details": "mapping_check_failed"
+  },
+  {
+    "timestamp": "2026-04-06T12:01:18",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "FAILED",
+    "details": "mapping_check_failed"
+  },
+  {
+    "timestamp": "2026-04-06T12:01:38",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "FAILED",
+    "details": "mapping_check_failed"
+  },
+  {
+    "timestamp": "2026-04-06T12:01:51",
+    "actor": "1",
+    "action": "LOGIN",
+    "target": "1",
+    "status": "FAILED",
+    "details": "mapping_check_failed"
+  },
+  {
+    "timestamp": "2026-04-06T12:02:03",
+    "actor": "3",
+    "action": "LOGIN",
+    "target": "3",
+    "status": "SUCCESS",
+    "details": "user_logged_in"
+  },
+  {
+    "timestamp": "2026-04-06T12:02:28",
+    "actor": "3",
+    "action": "LOGOUT",
+    "target": "3",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-06T12:02:31",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "FAILED",
+    "details": "mapping_check_failed"
+  },
+  {
+    "timestamp": "2026-04-06T12:03:06",
+    "actor": "3",
+    "action": "LOGIN",
+    "target": "3",
+    "status": "FAILED",
+    "details": "wrong_password"
+  },
+  {
+    "timestamp": "2026-04-06T12:03:10",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "FAILED",
+    "details": "mapping_check_failed"
+  },
+  {
+    "timestamp": "2026-04-06T12:04:01",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "FAILED",
+    "details": "wrong_password"
+  },
+  {
+    "timestamp": "2026-04-06T12:04:04",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "FAILED",
+    "details": "mapping_check_failed"
+  },
+  {
+    "timestamp": "2026-04-06T12:05:20",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "SUCCESS",
+    "details": "user_logged_in"
+  }
+]

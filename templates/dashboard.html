@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Головне меню</h1>
+<p>Поточний користувач: <strong>{{ username }}</strong></p>
+<p>Рівень доступу: <strong>{{ access_level }}</strong> із 3</p>
+
+<section class="card">
+  {% if is_admin %}
+    <h2>Режим адміністратора</h2>
+    <ul>
+      <li>Зміна пароля адміністратора</li>
+      <li>Перегляд параметрів облікових записів</li>
+      <li>Додавання нового користувача з порожнім паролем</li>
+      <li>Блокування/розблокування користувачів</li>
+      <li>Вмикання/вимикання обмежень на пароль</li>
+      <li>Призначення рівнів доступу (1..3)</li>
+    </ul>
+    <a class="btn" href="{{ url_for('users_list') }}">Керування користувачами</a>
+    <a class="btn secondary" href="{{ url_for('view_logs') }}">Перегляд журналів</a>
+  {% else %}
+    <h2>Режим звичайного користувача</h2>
+    <p>Доступні тільки: зміна пароля і завершення роботи.</p>
+  {% endif %}
+</section>
+
+<section class="card">
+  <h2>Реалізовані функції ПЗ (&gt;5)</h2>
+  <p>Доступ визначається вашим рівнем доступу та фіксується в операційному журналі.</p>
+  <div class="row">
+    <a class="btn" href="{{ url_for('protected_function', function_id=1) }}">Функція 1 (L1)</a>
+    <a class="btn" href="{{ url_for('protected_function', function_id=2) }}">Функція 2 (L1)</a>
+    <a class="btn" href="{{ url_for('protected_function', function_id=3) }}">Функція 3 (L2)</a>
+    <a class="btn" href="{{ url_for('protected_function', function_id=4) }}">Функція 4 (L2)</a>
+    <a class="btn" href="{{ url_for('protected_function', function_id=5) }}">Функція 5 (L3)</a>
+    <a class="btn" href="{{ url_for('protected_function', function_id=6) }}">Функція 6 (L3)</a>
+  </div>
+</section>
+
+<section class="card">
+  <a class="btn" href="{{ url_for('change_password') }}">Змінити пароль</a>
+  <a class="btn secondary" href="{{ url_for('logout') }}">Завершити роботу</a>
+</section>
+{% endblock %}

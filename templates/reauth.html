@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Періодична аутентифікація</h1>
+<p>Минув період повтору 2 хв. Дайте відповіді на 4 випадкові запитання.</p>
+
+<form method="post" class="card">
+  {% for q in questions %}
+  <label>{{ q.question }}
+    <input name="{{ q.id }}" required>
+  </label>
+  {% endfor %}
+  <div class="row">
+    <button type="submit">Підтвердити</button>
+    <a class="btn secondary" href="{{ url_for('logout') }}">Завершити роботу</a>
+  </div>
+</form>
+{% endblock %}

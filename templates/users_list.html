@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Список користувачів</h1>
+<p><a class="btn secondary" href="{{ url_for('view_logs') }}">Відкрити журнали</a></p>
+
+<form method="post" action="{{ url_for('add_user') }}" class="card">
+  <h2>Додати користувача</h2>
+  <label>Нове унікальне ім'я
+    <input name="new_username" required>
+  </label>
+  <button type="submit">Додати з порожнім паролем</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ім'я</th>
+      <th>Блокування</th>
+      <th>Обмеження пароля</th>
+      <th>Пароль задано</th>
+      <th>Рівень доступу</th>
+      <th>Дії</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for username, user in users.items() %}
+    <tr>
+      <td>{{ username }}</td>
+      <td>{{ "Так" if user.blocked else "Ні" }}</td>
+      <td>{{ "Увімкнено" if user.password_restrictions_enabled else "Вимкнено" }}</td>
+      <td>{{ "Так" if user.password_hash else "Ні (порожній)" }}</td>
+      <td>{{ user.access_level }}</td>
+      <td class="row">
+        {% if username != "ADMIN" %}
+        <form method="post" action="{{ url_for('toggle_block', username=username) }}">
+          <button type="submit" class="secondary">
+            {{ "Розблокувати" if user.blocked else "Заблокувати" }}
+          </button>
+        </form>
+        {% endif %}
+        <form method="post" action="{{ url_for('toggle_restrictions', username=username) }}">
+          <button type="submit">
+            {{ "Вимкнути обмеження" if user.password_restrictions_enabled else "Увімкнути обмеження" }}
+          </button>
+        </form>
+        {% if username != "ADMIN" %}
+        <form method="post" action="{{ url_for('set_level', username=username) }}" class="row">
+          <select name="access_level">
+            <option value="1" {% if user.access_level == 1 %}selected{% endif %}>L1</option>
+            <option value="2" {% if user.access_level == 2 %}selected{% endif %}>L2</option>
+            <option value="3" {% if user.access_level == 3 %}selected{% endif %}>L3</option>
+          </select>
+          <button type="submit">Змінити рівень</button>
+        </form>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

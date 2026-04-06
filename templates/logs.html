@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Журнали системи</h1>
+
+<section class="card">
+  <h2>Оцінка розміру журналів</h2>
+  <p>Реєстраційний журнал: <strong>{{ registration_size }}</strong> байт</p>
+  <p>Операційний журнал: <strong>{{ operation_size }}</strong> байт</p>
+</section>
+
+<section class="card">
+  <h2>Реєстраційний журнал (останні 50 записів)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Час</th>
+        <th>Ініціатор</th>
+        <th>Дія</th>
+        <th>Ціль</th>
+        <th>Статус</th>
+        <th>Деталі</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in registration_log %}
+      <tr>
+        <td>{{ item.timestamp }}</td>
+        <td>{{ item.actor }}</td>
+        <td>{{ item.action }}</td>
+        <td>{{ item.target }}</td>
+        <td>{{ item.status }}</td>
+        <td>{{ item.details }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+<section class="card">
+  <h2>Операційний журнал (останні 50 записів)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Час</th>
+        <th>Користувач</th>
+        <th>Дія</th>
+        <th>Статус</th>
+        <th>Деталі</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in operation_log %}
+      <tr>
+        <td>{{ item.timestamp }}</td>
+        <td>{{ item.user }}</td>
+        <td>{{ item.action }}</td>
+        <td>{{ item.status }}</td>
+        <td>{{ item.details }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

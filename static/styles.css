@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f6fb;
+  color: #1a1a1a;
+}
+
+.topbar {
+  background: #203040;
+  color: white;
+  padding: 12px 20px;
+}
+
+.topbar nav {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.topbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 960px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #dfe5ee;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 9px;
+  margin-top: 4px;
+  box-sizing: border-box;
+}
+
+select {
+  padding: 8px;
+  border: 1px solid #d7dee8;
+  border-radius: 6px;
+}
+
+button,
+.btn {
+  display: inline-block;
+  border: 0;
+  border-radius: 6px;
+  padding: 9px 12px;
+  background: #1f6feb;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.secondary {
+  background: #5f6b7a;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+th,
+td {
+  border: 1px solid #d7dee8;
+  padding: 10px;
+  text-align: left;
+}
+
+.messages {
+  margin-bottom: 12px;
+}
+
+.msg {
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.msg.error {
+  background: #fee2e2;
+}
+
+.msg.success {
+  background: #dcfce7;
+}
+
+.msg.info {
+  background: #dbeafe;
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title or "ЛР1: Аутентифікація" }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <header class="topbar">
+      <nav>
+        <a href="{{ url_for('dashboard') if session.get('username') else url_for('login') }}">Головна</a>
+        {% if session.get('username') %}
+          <a href="{{ url_for('change_password') }}">Зміна пароля</a>
+        {% endif %}
+        <a href="{{ url_for('about') }}">Про програму</a>
+        {% if session.get('username') %}
+          <a href="{{ url_for('logout') }}">Завершити роботу</a>
+        {% endif %}
+      </nav>
+    </header>
+
+    <main class="container">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <section class="messages">
+            {% for category, message in messages %}
+              <div class="msg {{ category }}">{{ message }}</div>
+            {% endfor %}
+          </section>
+        {% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Вхід до системи</h1>
+<form method="post" class="card">
+  <label>Ім'я користувача
+    <input name="username" required>
+  </label>
+  <label>Пароль
+    <input name="password" type="password">
+  </label>
+  <p>Підказка: при першому вході користувача з порожнім паролем залиште це поле пустим.</p>
+  <div class="row">
+    <button type="submit">Увійти</button>
+    <button type="submit" name="exit" value="1" class="secondary">Завершити роботу</button>
+  </div>
+</form>
+{% endblock %}
