@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Контрольні запитання</h1>
+<p>Вкажіть відповіді на всі запитання. Вони потрібні для періодичної аутентифікації під час роботи.</p>
+
+<form method="post" class="card">
+  {% for q in questions %}
+  <label>{{ q.question }}
+    <input name="{{ q.id }}" required autocomplete="off">
+  </label>
+  {% endfor %}
+  <div class="row">
+    <button type="submit">Зберегти відповіді</button>
+    <a class="btn secondary" href="{{ url_for('logout') }}">Завершити роботу</a>
+  </div>
+</form>
+{% endblock %}

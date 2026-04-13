@@ -1,100 +1,72 @@
 {
   "users": {
     "ADMIN": {
-      "password_hash": "81ba784075fa8a8e93929e708a541b64d154dfd6db60ddc9504983a72941b288",
+      "password_hash": "3.0598732562474598",
       "blocked": false,
       "password_restrictions_enabled": true,
       "access_level": 3,
-      "crypto_a": 6.533333333333333,
+      "crypto_a": 5.966666666666667,
       "security_answers": {
-        "q1": "lviv",
-        "q2": "blue",
-        "q3": "olena",
-        "q4": "spring",
-        "q5": "school1",
-        "q6": "math",
-        "q7": "kobzar",
-        "q8": "borsch",
-        "q9": "barsik",
-        "q10": "rock",
-        "q11": "matrix",
-        "q12": "reading",
-        "q13": "football",
-        "q14": "tea",
-        "q15": "cat"
-      }
+        "q1": "мукачево",
+        "q2": "фіолетовий",
+        "q3": "тетяна",
+        "q4": "зима",
+        "q5": "первоцвіт",
+        "q6": "зарубіжна література",
+        "q7": "11/22/63",
+        "q8": "паста",
+        "q9": "тося",
+        "q10": "інді рок",
+        "q11": "12 розгніваних чоловіків",
+        "q12": "гітара",
+        "q13": "біг",
+        "q14": "пепсі",
+        "q15": "сурикат"
+      },
+      "crypto_x": 1.8570942946907256
     },
-    "1": {
-      "password_hash": "57a5ac037e14924e21e04ecdada11c071bd7ae3e2cb3925da549023b408a4a42",
+    "user1": {
+      "password_hash": "4.8142816438335663",
       "blocked": false,
       "password_restrictions_enabled": true,
       "access_level": 1,
-      "crypto_a": 1.0,
+      "crypto_a": 5.966666666666667,
       "security_answers": {
-        "q1": "lviv",
-        "q2": "blue",
-        "q3": "olena",
-        "q4": "spring",
-        "q5": "school1",
-        "q6": "math",
-        "q7": "kobzar",
-        "q8": "borsch",
-        "q9": "barsik",
-        "q10": "rock",
-        "q11": "matrix",
-        "q12": "reading",
-        "q13": "football",
-        "q14": "tea",
-        "q15": "cat"
-      }
+        "q1": "1",
+        "q2": "1",
+        "q3": "1",
+        "q4": "1",
+        "q5": "1",
+        "q6": "1",
+        "q7": "1",
+        "q8": "1",
+        "q9": "1",
+        "q10": "1",
+        "q11": "1",
+        "q12": "1",
+        "q13": "1",
+        "q14": "1",
+        "q15": "1"
+      },
+      "crypto_x": 0.4539737517835317
     },
-    "2": {
+    "user2": {
       "password_hash": "",
       "blocked": true,
       "password_restrictions_enabled": true,
       "access_level": 1,
       "crypto_a": 1.0,
-      "security_answers": {
-        "q1": "lviv",
-        "q2": "blue",
-        "q3": "olena",
-        "q4": "spring",
-        "q5": "school1",
-        "q6": "math",
-        "q7": "kobzar",
-        "q8": "borsch",
-        "q9": "barsik",
-        "q10": "rock",
-        "q11": "matrix",
-        "q12": "reading",
-        "q13": "football",
-        "q14": "tea",
-        "q15": "cat"
-      }
+      "security_answers": {},
+      "crypto_x": null
     },
-    "3": {
-      "password_hash": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+    "user3": {
+      "password_hash": "",
       "blocked": false,
       "password_restrictions_enabled": false,
-      "access_level": 1,
+      "access_level": 2,
       "crypto_a": 5.0,
-      "security_answers": {
-        "q1": "lviv",
-        "q2": "blue",
-        "q3": "olena",
-        "q4": "spring",
-        "q5": "school1",
-        "q6": "math",
-        "q7": "kobzar",
-        "q8": "borsch",
-        "q9": "barsik",
-        "q10": "rock",
-        "q11": "matrix",
-        "q12": "reading",
-        "q13": "football",
-        "q14": "tea",
-        "q15": "cat"
-      }
+      "security_answers": {},
+      "crypto_x": null
     },
     "user4": {
       "password_hash": "",
@@ -102,23 +74,8 @@
       "password_restrictions_enabled": true,
       "access_level": 1,
       "crypto_a": 1.0,
-      "security_answers": {
-        "q1": "lviv",
-        "q2": "blue",
-        "q3": "olena",
-        "q4": "spring",
-        "q5": "school1",
-        "q6": "math",
-        "q7": "kobzar",
-        "q8": "borsch",
-        "q9": "barsik",
-        "q10": "rock",
-        "q11": "matrix",
-        "q12": "reading",
-        "q13": "football",
-        "q14": "tea",
-        "q15": "cat"
-      }
+      "security_answers": {},
+      "crypto_x": null
     },
     "user5": {
       "password_hash": "",
@@ -126,23 +83,8 @@
       "password_restrictions_enabled": true,
       "access_level": 1,
       "crypto_a": 1.0,
-      "security_answers": {
-        "q1": "lviv",
-        "q2": "blue",
-        "q3": "olena",
-        "q4": "spring",
-        "q5": "school1",
-        "q6": "math",
-        "q7": "kobzar",
-        "q8": "borsch",
-        "q9": "barsik",
-        "q10": "rock",
-        "q11": "matrix",
-        "q12": "reading",
-        "q13": "football",
-        "q14": "tea",
-        "q15": "cat"
-      }
+      "security_answers": {},
+      "crypto_x": null
     },
     "user6": {
       "password_hash": "",
@@ -150,23 +92,8 @@
       "password_restrictions_enabled": true,
       "access_level": 1,
       "crypto_a": 1.0,
-      "security_answers": {
-        "q1": "lviv",
-        "q2": "blue",
-        "q3": "olena",
-        "q4": "spring",
-        "q5": "school1",
-        "q6": "math",
-        "q7": "kobzar",
-        "q8": "borsch",
-        "q9": "barsik",
-        "q10": "rock",
-        "q11": "matrix",
-        "q12": "reading",
-        "q13": "football",
-        "q14": "tea",
-        "q15": "cat"
-      }
+      "security_answers": {},
+      "crypto_x": null
     },
     "user7": {
       "password_hash": "",
@@ -174,23 +101,8 @@
       "password_restrictions_enabled": true,
       "access_level": 1,
       "crypto_a": 1.0,
-      "security_answers": {
-        "q1": "lviv",
-        "q2": "blue",
-        "q3": "olena",
-        "q4": "spring",
-        "q5": "school1",
-        "q6": "math",
-        "q7": "kobzar",
-        "q8": "borsch",
-        "q9": "barsik",
-        "q10": "rock",
-        "q11": "matrix",
-        "q12": "reading",
-        "q13": "football",
-        "q14": "tea",
-        "q15": "cat"
-      }
+      "security_answers": {},
+      "crypto_x": null
     },
     "user8": {
       "password_hash": "",
@@ -198,23 +110,8 @@
       "password_restrictions_enabled": true,
       "access_level": 1,
       "crypto_a": 1.0,
-      "security_answers": {
-        "q1": "lviv",
-        "q2": "blue",
-        "q3": "olena",
-        "q4": "spring",
-        "q5": "school1",
-        "q6": "math",
-        "q7": "kobzar",
-        "q8": "borsch",
-        "q9": "barsik",
-        "q10": "rock",
-        "q11": "matrix",
-        "q12": "reading",
-        "q13": "football",
-        "q14": "tea",
-        "q15": "cat"
-      }
+      "security_answers": {},
+      "crypto_x": null
     },
     "user9": {
       "password_hash": "",
@@ -222,23 +119,8 @@
       "password_restrictions_enabled": true,
       "access_level": 1,
       "crypto_a": 1.0,
-      "security_answers": {
-        "q1": "lviv",
-        "q2": "blue",
-        "q3": "olena",
-        "q4": "spring",
-        "q5": "school1",
-        "q6": "math",
-        "q7": "kobzar",
-        "q8": "borsch",
-        "q9": "barsik",
-        "q10": "rock",
-        "q11": "matrix",
-        "q12": "reading",
-        "q13": "football",
-        "q14": "tea",
-        "q15": "cat"
-      }
+      "security_answers": {},
+      "crypto_x": null
     },
     "user10": {
       "password_hash": "",
@@ -246,23 +128,8 @@
       "password_restrictions_enabled": true,
       "access_level": 1,
       "crypto_a": 1.0,
-      "security_answers": {
-        "q1": "lviv",
-        "q2": "blue",
-        "q3": "olena",
-        "q4": "spring",
-        "q5": "school1",
-        "q6": "math",
-        "q7": "kobzar",
-        "q8": "borsch",
-        "q9": "barsik",
-        "q10": "rock",
-        "q11": "matrix",
-        "q12": "reading",
-        "q13": "football",
-        "q14": "tea",
-        "q15": "cat"
-      }
+      "security_answers": {},
+      "crypto_x": null
     },
     "user11": {
       "password_hash": "",
@@ -270,23 +137,8 @@
       "password_restrictions_enabled": true,
       "access_level": 1,
       "crypto_a": 1.0,
-      "security_answers": {
-        "q1": "lviv",
-        "q2": "blue",
-        "q3": "olena",
-        "q4": "spring",
-        "q5": "school1",
-        "q6": "math",
-        "q7": "kobzar",
-        "q8": "borsch",
-        "q9": "barsik",
-        "q10": "rock",
-        "q11": "matrix",
-        "q12": "reading",
-        "q13": "football",
-        "q14": "tea",
-        "q15": "cat"
-      }
+      "security_answers": {},
+      "crypto_x": null
     }
   }
 }

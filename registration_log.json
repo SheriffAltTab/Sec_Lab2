@@ -150,5 +150,149 @@
     "target": "ADMIN",
     "status": "SUCCESS",
     "details": "user_logged_in"
+  },
+  {
+    "timestamp": "2026-04-13T02:30:03",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "SUCCESS",
+    "details": "user_logged_in"
+  },
+  {
+    "timestamp": "2026-04-13T02:40:17",
+    "actor": "ADMIN",
+    "action": "LOGOUT",
+    "target": "ADMIN",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T02:40:22",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "SUCCESS",
+    "details": "user_logged_in"
+  },
+  {
+    "timestamp": "2026-04-13T02:52:05",
+    "actor": "ADMIN",
+    "action": "LOGOUT",
+    "target": "ADMIN",
+    "status": "FORCED",
+    "details": "failed_periodic_auth"
+  },
+  {
+    "timestamp": "2026-04-13T02:54:11",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "SUCCESS",
+    "details": "user_logged_in"
+  },
+  {
+    "timestamp": "2026-04-13T02:55:55",
+    "actor": "ADMIN",
+    "action": "SET_LEVEL",
+    "target": "1",
+    "status": "SUCCESS",
+    "details": "3"
+  },
+  {
+    "timestamp": "2026-04-13T02:56:00",
+    "actor": "ADMIN",
+    "action": "SET_LEVEL",
+    "target": "3",
+    "status": "SUCCESS",
+    "details": "2"
+  },
+  {
+    "timestamp": "2026-04-13T02:58:23",
+    "actor": "ADMIN",
+    "action": "LOGOUT",
+    "target": "ADMIN",
+    "status": "FORCED",
+    "details": "failed_periodic_auth"
+  },
+  {
+    "timestamp": "2026-04-13T02:58:26",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "SUCCESS",
+    "details": "user_logged_in"
+  },
+  {
+    "timestamp": "2026-04-13T02:59:43",
+    "actor": "ADMIN",
+    "action": "LOGOUT",
+    "target": "ADMIN",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T02:59:47",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "SUCCESS",
+    "details": "user_logged_in"
+  },
+  {
+    "timestamp": "2026-04-13T03:03:30",
+    "actor": "ADMIN",
+    "action": "LOGOUT",
+    "target": "ADMIN",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:03:32",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "SUCCESS",
+    "details": "user_logged_in"
+  },
+  {
+    "timestamp": "2026-04-13T03:03:39",
+    "actor": "ADMIN",
+    "action": "SET_LEVEL",
+    "target": "user1",
+    "status": "SUCCESS",
+    "details": "1"
+  },
+  {
+    "timestamp": "2026-04-13T03:03:42",
+    "actor": "ADMIN",
+    "action": "LOGOUT",
+    "target": "ADMIN",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:03:57",
+    "actor": "user1",
+    "action": "LOGIN",
+    "target": "user1",
+    "status": "SUCCESS",
+    "details": "user_logged_in"
+  },
+  {
+    "timestamp": "2026-04-13T03:04:34",
+    "actor": "user1",
+    "action": "LOGOUT",
+    "target": "user1",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:04:35",
+    "actor": "ADMIN",
+    "action": "LOGIN",
+    "target": "ADMIN",
+    "status": "SUCCESS",
+    "details": "user_logged_in"
   }
 ]

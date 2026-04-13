@@ -33,6 +33,43 @@ def verify_password(password: str, password_hash: str) -> bool:
     return hash_password(password) == password_hash
 
 
+def is_legacy_sha256_credential(stored: str) -> bool:
+    return len(stored) == 64 and all(c in string.hexdigits for c in stored)
+
+
+def encrypt_password_variant(password: str) -> tuple[str, float]:
+    """Зберігаємо пароль лише через y = a*sin(1/x), x фіксований для облікового запису."""
+    x_value = random.uniform(0.25, 2.0)
+    a_value = password_to_a(password)
+    y_value = calc_mapping_value(a_value, x_value)
+    return f"{y_value:.17g}", x_value
+
+
+def verify_stored_password(password: str, user: dict) -> bool:
+    stored = user.get("password_hash") or ""
+    if stored == "":
+        return password == ""
+
+    if is_legacy_sha256_credential(stored):
+        if not verify_password(password, stored):
+            return False
+        x_value = random.uniform(0.25, 2.0)
+        expected_y = calc_mapping_value(float(user["crypto_a"]), x_value)
+        provided_y = calc_mapping_value(password_to_a(password), x_value)
+        return abs(provided_y - expected_y) <= 1e-9
+
+    x_fixed = user.get("crypto_x")
+    if x_fixed is None:
+        return False
+    try:
+        y_stored = float(stored)
+        x_val = float(x_fixed)
+    except (TypeError, ValueError):
+        return False
+    y_calc = calc_mapping_value(password_to_a(password), x_val)
+    return abs(y_calc - y_stored) <= 1e-9
+
+
 def validate_variant_28_password(password: str) -> bool:
     if len(password) < 3:
         return False
@@ -58,6 +95,7 @@ def password_to_a(password: str) -> float:
 
 
 def calc_mapping_value(a_value: float, x_value: float) -> float:
+    """Відображення з варіанту: y = a * sin(1/x), x ≠ 0 (перевірка при логіні)."""
     return a_value * math.sin(1.0 / x_value)
 
 
@@ -67,25 +105,52 @@ def now_iso() -> str:
 
 def build_security_questions() -> list[dict]:
     return [
-        {"id": "q1", "question": "Ваше місто народження?", "answer": "lviv"},
-        {"id": "q2", "question": "Улюблений колір?", "answer": "blue"},
-        {"id": "q3", "question": "Ім'я першого вчителя?", "answer": "olena"},
-        {"id": "q4", "question": "Улюблена пора року?", "answer": "spring"},
-        {"id": "q5", "question": "Назва першої школи?", "answer": "school1"},
-        {"id": "q6", "question": "Улюблений предмет у школі?", "answer": "math"},
-        {"id": "q7", "question": "Улюблена книга?", "answer": "kobzar"},
-        {"id": "q8", "question": "Улюблена страва?", "answer": "borsch"},
-        {"id": "q9", "question": "Кличка домашньої тварини?", "answer": "barsik"},
-        {"id": "q10", "question": "Улюблений музичний жанр?", "answer": "rock"},
-        {"id": "q11", "question": "Улюблений фільм?", "answer": "matrix"},
-        {"id": "q12", "question": "Хобі?", "answer": "reading"},
-        {"id": "q13", "question": "Улюблений вид спорту?", "answer": "football"},
-        {"id": "q14", "question": "Улюблений напій?", "answer": "tea"},
-        {"id": "q15", "question": "Улюблена тварина?", "answer": "cat"},
+        {"id": "q1", "question": "Ваше місто народження?"},
+        {"id": "q2", "question": "Улюблений колір?"},
+        {"id": "q3", "question": "Ім'я першого вчителя?"},
+        {"id": "q4", "question": "Улюблена пора року?"},
+        {"id": "q5", "question": "Назва першої школи?"},
+        {"id": "q6", "question": "Улюблений предмет у школі?"},
+        {"id": "q7", "question": "Улюблена книга?"},
+        {"id": "q8", "question": "Улюблена страва?"},
+        {"id": "q9", "question": "Кличка домашньої тварини?"},
+        {"id": "q10", "question": "Улюблений музичний жанр?"},
+        {"id": "q11", "question": "Улюблений фільм?"},
+        {"id": "q12", "question": "Хобі?"},
+        {"id": "q13", "question": "Улюблений вид спорту?"},
+        {"id": "q14", "question": "Улюблений напій?"},
+        {"id": "q15", "question": "Улюблена тварина?"},
     ]
 
 
 SECURITY_QUESTIONS = build_security_questions()
+
+# Колишні «автовідповіді» в БД — при збігу очищуємо, щоб користувач задав відповіді сам.
+LEGACY_AUTO_SECURITY_ANSWERS = {
+    "q1": "lviv",
+    "q2": "blue",
+    "q3": "olena",
+    "q4": "spring",
+    "q5": "school1",
+    "q6": "math",
+    "q7": "kobzar",
+    "q8": "borsch",
+    "q9": "barsik",
+    "q10": "rock",
+    "q11": "matrix",
+    "q12": "reading",
+    "q13": "football",
+    "q14": "tea",
+    "q15": "cat",
+}
+
+
+def security_answers_complete(user: dict) -> bool:
+    answers = user.get("security_answers") or {}
+    for item in SECURITY_QUESTIONS:
+        if not str(answers.get(item["id"], "")).strip():
+            return False
+    return True
 
 
 def ensure_data_file() -> None:
@@ -97,7 +162,8 @@ def ensure_data_file() -> None:
                 "password_restrictions_enabled": True,
                 "access_level": 3,
                 "crypto_a": 1.0,
-                "security_answers": {item["id"]: item["answer"] for item in SECURITY_QUESTIONS},
+                "crypto_x": None,
+                "security_answers": {},
             }
         }
         for idx in range(1, TOTAL_USERS_TARGET):
@@ -107,7 +173,8 @@ def ensure_data_file() -> None:
                 "password_restrictions_enabled": True,
                 "access_level": 2 if idx <= 4 else 1,
                 "crypto_a": 1.0,
-                "security_answers": {item["id"]: item["answer"] for item in SECURITY_QUESTIONS},
+                "crypto_x": None,
+                "security_answers": {},
             }
         data = {"users": users}
         with open(DATA_FILE, "w", encoding="utf-8") as file:
@@ -150,8 +217,14 @@ def migrate_data() -> None:
         if "crypto_a" not in user:
             user["crypto_a"] = 1.0
             changed = True
+        if "crypto_x" not in user:
+            user["crypto_x"] = None
+            changed = True
         if "security_answers" not in user:
-            user["security_answers"] = {item["id"]: item["answer"] for item in SECURITY_QUESTIONS}
+            user["security_answers"] = {}
+            changed = True
+        elif user.get("security_answers") == LEGACY_AUTO_SECURITY_ANSWERS:
+            user["security_answers"] = {}
             changed = True
     while len(data.get("users", {})) < TOTAL_USERS_TARGET:
         idx = len(data["users"])
@@ -165,7 +238,8 @@ def migrate_data() -> None:
             "password_restrictions_enabled": True,
             "access_level": 1,
             "crypto_a": 1.0,
-            "security_answers": {item["id"]: item["answer"] for item in SECURITY_QUESTIONS},
+            "crypto_x": None,
+            "security_answers": {},
         }
         changed = True
     if changed:
@@ -258,6 +332,21 @@ def periodic_auth_guard():
         return
     if "username" not in session:
         return
+
+    user, _ = get_user_record(session["username"])
+    if user is None:
+        return
+
+    if session.get("force_password_change"):
+        if request.endpoint == "change_password":
+            return
+        return redirect(url_for("change_password", first=1))
+
+    if not security_answers_complete(user):
+        if request.endpoint == "setup_security_questions":
+            return
+        return redirect(url_for("setup_security_questions"))
+
     last_auth = session.get("last_auth_at")
     if not last_auth:
         session["last_auth_at"] = datetime.now().timestamp()
@@ -290,10 +379,6 @@ def login():
             return render_template("login.html")
 
         stored_hash = user["password_hash"]
-        x_value = random.uniform(0.25, 2.0)
-        expected_y = calc_mapping_value(float(user["crypto_a"]), x_value)
-        user_a = password_to_a(password)
-        provided_y = calc_mapping_value(user_a, x_value)
         if stored_hash == "":
             if password != "":
                 session["failed_attempts"] += 1
@@ -302,7 +387,7 @@ def login():
                 flash("Невірний пароль. Для першого входу пароль має бути порожнім.", "error")
                 return render_template("login.html")
         else:
-            if not verify_password(password, stored_hash):
+            if not verify_stored_password(password, user):
                 session["failed_attempts"] += 1
                 if session["failed_attempts"] >= MAX_LOGIN_ATTEMPTS:
                     return redirect(url_for("terminated"))
@@ -311,12 +396,6 @@ def login():
                     "error",
                 )
                 log_registration_event(username, "LOGIN", username, "FAILED", "wrong_password")
-                return render_template("login.html")
-
-            if abs(provided_y - expected_y) > 1e-9:
-                session["failed_attempts"] += 1
-                flash("Перевірка відображення пароля не пройдена.", "error")
-                log_registration_event(username, "LOGIN", username, "FAILED", "mapping_check_failed")
                 return render_template("login.html")
 
         session["failed_attempts"] = 0
@@ -350,6 +429,9 @@ def dashboard():
     if session.get("force_password_change"):
         return redirect(url_for("change_password", first=1))
 
+    if not security_answers_complete(user):
+        return redirect(url_for("setup_security_questions"))
+
     return render_template(
         "dashboard.html",
         username=username,
@@ -380,7 +462,7 @@ def change_password():
         confirm_password = request.form.get("confirm_password", "")
 
         if user["password_hash"] != "":
-            if not verify_password(old_password, user["password_hash"]):
+            if not verify_stored_password(old_password, user):
                 flash("Старий пароль введено неправильно.", "error")
                 return render_template("change_password.html", first_login=first_login)
 
@@ -396,15 +478,51 @@ def change_password():
             )
             return render_template("change_password.html", first_login=first_login)
 
-        data["users"][username]["password_hash"] = hash_password(new_password)
+        y_stored, x_stored = encrypt_password_variant(new_password)
+        data["users"][username]["password_hash"] = y_stored
+        data["users"][username]["crypto_x"] = x_stored
         data["users"][username]["crypto_a"] = password_to_a(new_password)
         save_data(data)
         session["force_password_change"] = False
         log_operation_event(username, "CHANGE_PASSWORD", "SUCCESS")
         flash("Пароль успішно змінено.", "success")
+        if not security_answers_complete(data["users"][username]):
+            return redirect(url_for("setup_security_questions"))
         return redirect(url_for("dashboard"))
 
     return render_template("change_password.html", first_login=first_login)
+
+
+@app.route("/setup_security", methods=["GET", "POST"])
+@login_required
+def setup_security_questions():
+    username = session["username"]
+    user, data = get_user_record(username)
+    if user is None:
+        session.clear()
+        return redirect(url_for("login"))
+
+    if security_answers_complete(user):
+        return redirect(url_for("dashboard"))
+
+    if request.method == "POST":
+        new_answers: dict[str, str] = {}
+        for item in SECURITY_QUESTIONS:
+            qid = item["id"]
+            val = request.form.get(qid, "").strip()
+            if not val:
+                flash("Усі поля мають бути заповнені.", "error")
+                return render_template("setup_security.html", questions=SECURITY_QUESTIONS)
+            new_answers[qid] = val.lower()
+
+        data["users"][username]["security_answers"] = new_answers
+        save_data(data)
+        session["last_auth_at"] = datetime.now().timestamp()
+        log_operation_event(username, "SETUP_SECURITY_QUESTIONS", "SUCCESS")
+        flash("Контрольні відповіді збережено.", "success")
+        return redirect(url_for("dashboard"))
+
+    return render_template("setup_security.html", questions=SECURITY_QUESTIONS)
 
 
 @app.route("/admin/users")
@@ -438,7 +556,8 @@ def add_user():
         "password_restrictions_enabled": True,
         "access_level": 1,
         "crypto_a": 1.0,
-        "security_answers": {item["id"]: item["answer"] for item in SECURITY_QUESTIONS},
+        "crypto_x": None,
+        "security_answers": {},
     }
     save_data(data)
     log_registration_event(session["username"], "CREATE_USER", username, "SUCCESS")
@@ -520,6 +639,10 @@ def reauthenticate():
     if user is None:
         session.clear()
         return redirect(url_for("login"))
+
+    if not security_answers_complete(user):
+        flash("Спочатку налаштуйте контрольні запитання.", "error")
+        return redirect(url_for("setup_security_questions"))
 
     if request.method == "GET":
         selected = random.sample(SECURITY_QUESTIONS, QUESTIONS_PER_ITERATION)

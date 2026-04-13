@@ -145,5 +145,264 @@
     "action": "FUNCTION_6",
     "status": "SUCCESS",
     "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T02:30:03",
+    "user": "ADMIN",
+    "action": "LOGIN",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T02:30:19",
+    "user": "ADMIN",
+    "action": "CHANGE_PASSWORD",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T02:40:17",
+    "user": "ADMIN",
+    "action": "LOGOUT",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T02:40:22",
+    "user": "ADMIN",
+    "action": "LOGIN",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T02:40:29",
+    "user": "ADMIN",
+    "action": "CHANGE_PASSWORD",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T02:47:12",
+    "user": "ADMIN",
+    "action": "SETUP_SECURITY_QUESTIONS",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T02:52:05",
+    "user": "ADMIN",
+    "action": "REAUTH",
+    "status": "FAILED",
+    "details": "wrong_answer_q4"
+  },
+  {
+    "timestamp": "2026-04-13T02:54:11",
+    "user": "ADMIN",
+    "action": "LOGIN",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T02:55:37",
+    "user": "ADMIN",
+    "action": "FUNCTION_1",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T02:58:23",
+    "user": "ADMIN",
+    "action": "REAUTH",
+    "status": "FAILED",
+    "details": "wrong_answer_q10"
+  },
+  {
+    "timestamp": "2026-04-13T02:58:26",
+    "user": "ADMIN",
+    "action": "LOGIN",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T02:59:43",
+    "user": "ADMIN",
+    "action": "LOGOUT",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T02:59:47",
+    "user": "ADMIN",
+    "action": "LOGIN",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T02:59:50",
+    "user": "ADMIN",
+    "action": "CHANGE_PASSWORD",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:00:03",
+    "user": "ADMIN",
+    "action": "FUNCTION_6",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:00:05",
+    "user": "ADMIN",
+    "action": "FUNCTION_2",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:00:07",
+    "user": "ADMIN",
+    "action": "FUNCTION_4",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:03:30",
+    "user": "ADMIN",
+    "action": "LOGOUT",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:03:32",
+    "user": "ADMIN",
+    "action": "LOGIN",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:03:42",
+    "user": "ADMIN",
+    "action": "LOGOUT",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:03:57",
+    "user": "user1",
+    "action": "LOGIN",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:04:05",
+    "user": "user1",
+    "action": "CHANGE_PASSWORD",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:04:22",
+    "user": "user1",
+    "action": "SETUP_SECURITY_QUESTIONS",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:04:24",
+    "user": "user1",
+    "action": "FUNCTION_3",
+    "status": "DENIED",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:04:26",
+    "user": "user1",
+    "action": "FUNCTION_5",
+    "status": "DENIED",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:04:27",
+    "user": "user1",
+    "action": "FUNCTION_4",
+    "status": "DENIED",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:04:29",
+    "user": "user1",
+    "action": "FUNCTION_6",
+    "status": "DENIED",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:04:30",
+    "user": "user1",
+    "action": "FUNCTION_2",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:04:32",
+    "user": "user1",
+    "action": "FUNCTION_4",
+    "status": "DENIED",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:04:33",
+    "user": "user1",
+    "action": "FUNCTION_1",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:04:34",
+    "user": "user1",
+    "action": "LOGOUT",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:04:36",
+    "user": "ADMIN",
+    "action": "LOGIN",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:04:51",
+    "user": "ADMIN",
+    "action": "FUNCTION_3",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:04:52",
+    "user": "ADMIN",
+    "action": "FUNCTION_6",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:04:54",
+    "user": "ADMIN",
+    "action": "FUNCTION_5",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:04:54",
+    "user": "ADMIN",
+    "action": "FUNCTION_4",
+    "status": "SUCCESS",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-04-13T03:04:56",
+    "user": "ADMIN",
+    "action": "FUNCTION_1",
+    "status": "SUCCESS",
+    "details": ""
   }
 ]
